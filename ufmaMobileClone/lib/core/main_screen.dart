@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ufmaMobileClone/core/components/panels/balance.dart';
 import 'components/my_tab_icon.dart';
 
 class MainScreen extends StatelessWidget {
@@ -43,22 +43,8 @@ class MainScreen extends StatelessWidget {
                 indicatorWeight: 5,
                 labelPadding: EdgeInsets.only(bottom: 5),
               )),
-          body: TabBarView(children: [
-            Container(
-                color: Color(0xFFF0ECF1),
-                padding: EdgeInsets.all(20),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "R\$ 8.25",
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.w400),
-                      ),
-                    ])),
-            Container(),
-            Container(),
-          ])),
+          body:
+              TabBarView(children: [BalancePanel(), Container(), Container()])),
     );
   }
 }
