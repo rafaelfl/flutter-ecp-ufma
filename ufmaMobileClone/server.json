@@ -20,5 +20,21 @@
 			"date": "Hoje, 12:29",
 			"type": "Débito"
 		}
-	]
+	],
+	"lunch": {
+		"principal": "Frango Assado",
+		"vegan": "Refogado de Soja",
+		"cereal": "Arroz Branco",
+		"vegetables": "Feijão",
+		"dessert": "Banana",
+		"schedule": "11:00 ÀS 13:45"
+	},
+	"dinner": {
+		"principal": "Bife a milaneza",
+		"vegan": "Escondidinho de soja",
+		"cereal": "Arroz Branco",
+		"vegetables": "Rúcula",
+		"dessert": "Pé de moleque",
+		"schedule": "17:00 ÀS 19:45"
+	}
 }

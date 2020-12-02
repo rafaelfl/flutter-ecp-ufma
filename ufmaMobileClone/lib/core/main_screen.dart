@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ufmaMobileClone/core/components/panels/balance.dart';
+import 'package:ufmaMobileClone/core/components/panels/dinner.dart';
+import 'package:ufmaMobileClone/core/components/panels/lunch.dart';
 import 'components/my_tab_icon.dart';
 import 'components/panels/balance.dart';
 
@@ -44,8 +46,8 @@ class MainScreen extends StatelessWidget {
                 indicatorWeight: 5,
                 labelPadding: EdgeInsets.only(bottom: 5),
               )),
-          body:
-              TabBarView(children: [BalancePanel(), Container(), Container()])),
+          body: TabBarView(
+              children: [BalancePanel(), LunchPanel(), DinnerPanel()])),
     );
   }
 }
