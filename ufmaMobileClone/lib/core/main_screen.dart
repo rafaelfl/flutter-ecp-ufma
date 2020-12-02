@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ufmaMobileClone/core/components/panels/balance.dart';
 import 'components/my_tab_icon.dart';
+import 'components/panels/balance.dart';
 
 class MainScreen extends StatelessWidget {
   @override
