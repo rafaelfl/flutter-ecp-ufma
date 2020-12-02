@@ -1,27 +1,21 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../utils/Tag.dart';
 import 'package:http/http.dart' as http;
 
-class BalancePanel extends StatefulWidget {
-  @override
-  _State createState() => _State();
+const baseUrl = " http://localhost:3000/history";
+
+Future<List<Tag>> fetchTags(http.Client client) async {
+  final response = await client.get(baseUrl);
+
+  // Use the compute function to run parsePhotos in a separate isolate.
+  return compute(parseTags, response.body);
 }
 
-class _State extends State<BalancePanel> {
-  String url = 'http://randomuser.me/api/';
+List<Tag> parseTags(String responseBody) {
+  final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
 
-  Future<String> makeRequest() async {
-    var response = await http
-        .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
-    print(response.body);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: new RaisedButton(
-      child: new Text('Make Request'),
-      onPressed: makeRequest,
-    ));
-  }
+  return parsed.map<Tag>((json) => Tag.fromJson(json)).toList();
 }
