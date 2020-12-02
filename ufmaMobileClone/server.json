@@ -8,6 +8,16 @@
 		{
 			"value": "R$ 1.25",
 			"date": "Hoje, 12:29",
+			"type": "Crédito"
+		},
+		{
+			"value": "R$ 1.25",
+			"date": "Hoje, 12:29",
+			"type": "Débito"
+		},
+		{
+			"value": "R$ 1.25",
+			"date": "Hoje, 12:29",
 			"type": "Débito"
 		}
 	]

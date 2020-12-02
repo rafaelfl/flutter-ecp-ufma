@@ -20,7 +20,6 @@ class _BalancePanelState extends State<BalancePanel> {
 
   // Faz o fetch dos elementos
   void fetchData() async {
-    print("teste");
     setState(() {
       isLoading = true;
     });
@@ -86,39 +85,25 @@ class _BalancePanelState extends State<BalancePanel> {
                     ? Center(
                         child: CircularProgressIndicator(),
                       )
-                    : ListView(
-                        children: [
-                          ListTile(
+                    : ListView.builder(
+                        itemCount: list.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
                             leading: Text(
-                              "R\$ 1.25",
+                              '${list[index].value}',
                               style: TextStyle(fontSize: 16),
                             ),
-                            title: Text("Hoje, 12:19",
+                            title: Text('${list[index].date}',
                                 style: TextStyle(fontSize: 16)),
-                            trailing:
-                                Text("Débito", style: TextStyle(fontSize: 16)),
-                          ),
-                          ListTile(
-                            leading: Text(
-                              "R\$ 1.25",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            title: Text("Hoje, 12:19",
-                                style: TextStyle(fontSize: 16)),
-                            trailing:
-                                Text("Débito", style: TextStyle(fontSize: 16)),
-                          ),
-                          ListTile(
-                            leading: Text(
-                              "R\$ 1.25",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            title: Text("Hoje, 12:19",
-                                style: TextStyle(fontSize: 16)),
-                            trailing:
-                                Text("Débito", style: TextStyle(fontSize: 16)),
-                          ),
-                        ],
+                            trailing: Text('${list[index].type}',
+                                style: (list[index].type == 'Débito')
+                                    ? TextStyle(
+                                        fontSize: 16, color: Color(0xff6B1828))
+                                    : TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xff8A9984))),
+                          );
+                        },
                       ))
           ],
         ),
