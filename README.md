@@ -4,4 +4,4 @@ Este repositório contém todos os exercírcios e projetos desenvolvidos no deco
 
 -   [Microprojeto](./microprojeto01-pizarria) 1: Pizzaria em dart
 -   [Microprojeto](./ufmaMobileClone) 2: Ufma Mobile Clone
--   [Projeto](./pokedex) 3: Pokedex 
+-   [Projeto](./rachaconta) 3: Racha conta
