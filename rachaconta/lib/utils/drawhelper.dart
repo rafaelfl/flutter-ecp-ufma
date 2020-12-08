@@ -4,11 +4,15 @@ class DrawHelper {
   // Retorna os números escolhidos para pagar um valor extra
   // choosenNumbers = número de escolhidos
   // maxPlayers = número máximo de participantes
-  static getChoosens(int choosenNumbers, int maxPlayers) {
+  static List<dynamic> getChoosens(int choosenNumbers, int maxPlayers) {
     var random = new Random();
     var choosens = [];
-    for (var i = 0; i < choosenNumbers; i++) {
-      choosens.add(random.nextInt(maxPlayers));
+    while(choosens.length < choosenNumbers) {
+        var randomNumber = (random.nextInt(maxPlayers)+1);
+        if(!choosens.contains(randomNumber)){
+            // Adiciona um número no array
+            choosens.add(randomNumber);
+        }
     }
     return choosens;
   }
@@ -19,7 +23,7 @@ class DrawHelper {
   // total = Total da conta
   // percent = Quantidade que será repartida entre os sorteados
 
-  static whoPayWhat(
+  static List<String> whoPayWhat(
       int maxPlayers, double percent, int choosenNumbers, double total) {
     double normalPay = (total - (total * percent)) / maxPlayers;
     double choosenPay = ((total * percent) / choosenNumbers) + normalPay;
