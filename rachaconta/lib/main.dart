@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false, // Remove a flag de debug
         title: 'Racha Conta',
         theme: ThemeData(primaryColor: Colors.orange),
+        initialRoute: '/',
         routes: {
           '/': (context) => HomeView(),
           '/result': (context) => ResultView()
