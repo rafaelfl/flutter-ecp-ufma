@@ -29,45 +29,56 @@ class ResultView extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Resultado'),
           ),
-          body: Center(
+          body: Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Column(
-            children: [
-              Container(
-                child: arguments["direction"] == 'Esquerda'
-                    ? Image.asset('lib/assets/leftarrow.png',
-                        width: 150.0, height: 50.0)
-                    : Image.asset('lib/assets/rightarrow.png',
-                        width: 150.0, height: 50.0),
-                color: Color(0xff4531B0),
-                padding: EdgeInsets.all(29),
-              ),
-              SizedBox(
-                  height: 100.0,
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemCount: result["choosens"].length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          height: 50,
-                          color: Colors.amber[colorCodes[index]],
-                          child: Center(
-                              child: Text('${result["choosens"][index]}')),
-                        );
-                      })),
-              Row(
                 children: [
-                  Text("Sorteados: "),
-                  Text(result["whopay"][1].toString())
+                  Text("Direção da Mesa", style: new TextStyle(fontSize: 20.0)),
+                  Container(
+                    child: arguments["direction"] == 'Esquerda'
+                        ? Image.asset('lib/assets/leftarrow.png',
+                            width: 200.0, height: 100.0)
+                        : Image.asset('lib/assets/rightarrow.png',
+                            width: 200.0, height: 100.0),
+                    padding: EdgeInsets.all(29),
+                  ),
+                  SizedBox(
+                      height: 100.0,
+                      child: ListView.builder(
+                          padding: const EdgeInsets.all(8),
+                          itemCount: result["choosens"].length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              height: 50,
+                              color: Colors.blue[colorCodes[index]],
+                              child: Center(
+                                  child: Text('${result["choosens"][index]}',
+                                      style: new TextStyle(
+                                          fontSize: 15, color: Colors.white))),
+                            );
+                          })),
+                  Padding(padding: EdgeInsets.only(top: 25)),
+                  Center(
+                      child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Sorteados: R\$",
+                          style: new TextStyle(fontSize: 20.0)),
+                      Text(result["whopay"][1].toString(),
+                          style: new TextStyle(fontSize: 20.0))
+                    ],
+                  )),
+                  Padding(padding: EdgeInsets.only(top: 25)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Resto: R\$ ", style: new TextStyle(fontSize: 20.0)),
+                      Text(result["whopay"][0].toString(),
+                          style: new TextStyle(fontSize: 20.0))
+                    ],
+                  )
                 ],
-              ),
-              Row(
-                children: [
-                  Text("Resto: "),
-                  Text(result["whopay"][0].toString())
-                ],
-              )
-            ],
-          ))),
+              ))),
       debugShowCheckedModeBanner: false,
     );
   }
