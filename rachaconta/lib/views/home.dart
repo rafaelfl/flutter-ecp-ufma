@@ -11,30 +11,6 @@ class _State extends State<HomeView> {
   double _totalPrice = 0.0;
   int _percent = 0;
 
-  void _incrementMaxPlayers() {
-    setState(() {
-      _maxPlayers++;
-    });
-  }
-
-  void _decrementMaxPlayers() {
-    setState(() {
-      _maxPlayers--;
-    });
-  }
-
-  void _incrementLuckyGuys() {
-    setState(() {
-      _luckyGuys++;
-    });
-  }
-
-  void _decrementLuckyGuys() {
-    setState(() {
-      _luckyGuys--;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,18 +89,16 @@ class _State extends State<HomeView> {
       Text('Max Players: $_maxPlayers'),
       Text('Lucky Guys: $_luckyGuys'),
       RaisedButton(
-          onPressed: (){
-                // Criando o objeto que será enviado
-              Navigator.pushNamed(context, '/result', arguments: {
-                  "percent": _percent,
-                  "totalPrice": _totalPrice,
-                  "maxPlayers": _maxPlayers,
-                  "luckyguys": _luckyGuys
-              });},
-          child: Text(
-            'Sortear',
-            style: TextStyle(fontSize: 20)
-          )),
+          onPressed: () {
+            // Criando o objeto que será enviado
+            Navigator.pushNamed(context, '/result', arguments: {
+              "percent": _percent,
+              "totalPrice": _totalPrice,
+              "maxPlayers": _maxPlayers,
+              "luckyguys": _luckyGuys
+            });
+          },
+          child: Text('Sortear', style: TextStyle(fontSize: 20))),
     ])));
   }
 }
