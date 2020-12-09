@@ -111,7 +111,20 @@ class _State extends State<HomeView> {
       Text('Percent: $_percent'),
       Text('Total Price: $_totalPrice'),
       Text('Max Players: $_maxPlayers'),
-      Text('Lucky Guys: $_luckyGuys')
+      Text('Lucky Guys: $_luckyGuys'),
+      RaisedButton(
+          onPressed: (){
+                // Criando o objeto que será enviado
+              Navigator.pushNamed(context, '/result', arguments: {
+                  "percent": _percent,
+                  "totalPrice": _totalPrice,
+                  "maxPlayers": _maxPlayers,
+                  "luckyguys": _luckyGuys
+              });},
+          child: Text(
+            'Sortear',
+            style: TextStyle(fontSize: 20)
+          )),
     ])));
   }
 }
