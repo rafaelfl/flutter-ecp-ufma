@@ -1,0 +1,18 @@
+{
+    "notes": [
+        {
+            "id": 1,
+            "title": "Bolo (ingredientes)",
+            "body": "Leite, açucar, manteiga, fermento, ovos",
+            "tags": "Cozinha, Receita"
+        },
+
+        {
+            "id": 2,
+            "title": "Renavam do carro",
+            "body": "69277238258",
+            "tags": "Documentos"
+        }
+    ],
+    "tags": ["Cozinha", "Receita", "Documentos"]
+}
