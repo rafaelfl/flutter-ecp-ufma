@@ -20,7 +20,12 @@ abstract class _NoteControllerBase with Store {
   }
 
   @action
-  deleteNote(int id) async {
+  removeNote(int id) async {
     _noteRepository.deleteNote(id);
+  }
+
+  @action
+  addNote(int id, String title, String body) async {
+    _noteRepository.newNote(id, title, body);
   }
 }

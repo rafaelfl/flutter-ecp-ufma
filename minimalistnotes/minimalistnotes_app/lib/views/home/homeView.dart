@@ -50,10 +50,13 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
                         child: ListTile(
-                          onTap: () {
-                            _noteController.deleteNote(list[index].id);
-                            _noteController.loadNotes();
-                          },
+                          trailing: InkWell(
+                            child: Icon(Icons.delete),
+                            onTap: () {
+                              _noteController.removeNote(list[index].id);
+                              _noteController.loadNotes();
+                            },
+                          ),
                           title: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(

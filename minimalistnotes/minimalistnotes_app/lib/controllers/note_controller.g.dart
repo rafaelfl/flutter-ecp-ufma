@@ -31,11 +31,18 @@ mixin _$NoteController on _NoteControllerBase, Store {
     return _$loadNotesAsyncAction.run(() => super.loadNotes());
   }
 
-  final _$deleteNoteAsyncAction = AsyncAction('_NoteControllerBase.deleteNote');
+  final _$removeNoteAsyncAction = AsyncAction('_NoteControllerBase.removeNote');
 
   @override
-  Future deleteNote(int id) {
-    return _$deleteNoteAsyncAction.run(() => super.deleteNote(id));
+  Future removeNote(int id) {
+    return _$removeNoteAsyncAction.run(() => super.removeNote(id));
+  }
+
+  final _$addNoteAsyncAction = AsyncAction('_NoteControllerBase.addNote');
+
+  @override
+  Future addNote(int id, String title, String body) {
+    return _$addNoteAsyncAction.run(() => super.addNote(id, title, body));
   }
 
   @override

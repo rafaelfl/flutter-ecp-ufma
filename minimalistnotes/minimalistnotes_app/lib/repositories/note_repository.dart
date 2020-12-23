@@ -44,14 +44,23 @@ class NoteRepository implements INoteRepository {
   }
 
   @override
-  Future<Note> getaNote() {
-    // TODO: implement getaNote
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Note> getaNotes() {
-    // TODO: implement getaNote
-    throw UnimplementedError();
+  Future<void> newNote(int id, String title, String body) async {
+    try {
+      final response = await http.post(ConstApi.NOTES,
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+          },
+          body: jsonEncode(
+              <String, dynamic>{'id': id, 'title': title, 'body': body}));
+      // Validação básica
+      if (response.statusCode == 200) {
+        return;
+      } else {
+        return null;
+      }
+    } catch (error, stacktrace) {
+      print("Erro ao deletar nota: " + stacktrace.toString());
+      return null;
+    }
   }
 }
