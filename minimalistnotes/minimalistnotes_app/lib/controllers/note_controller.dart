@@ -18,4 +18,9 @@ abstract class _NoteControllerBase with Store {
   loadNotes() async {
     listNote = ObservableList<Note>.of(await _noteRepository.getAllNotes());
   }
+
+  @action
+  deleteNote(int id) async {
+    _noteRepository.deleteNote(id);
+  }
 }

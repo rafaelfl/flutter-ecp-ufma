@@ -11,7 +11,7 @@ class NoteRepository implements INoteRepository {
     try {
       // ignore: deprecated_member_use
       List<Note> listNote = List();
-      final response = await http.get(ConstApi.GET_ALL_NOTES);
+      final response = await http.get(ConstApi.NOTES);
       // Validação básica
       if (response.statusCode == 200) {
         var decodeJson = jsonDecode(response.body);
@@ -23,6 +23,22 @@ class NoteRepository implements INoteRepository {
       }
     } catch (error, stacktrace) {
       print("Erro ao carregar lista: " + stacktrace.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future<void> deleteNote(int id) async {
+    try {
+      final response = await http.delete(ConstApi.NOTES + '/${id}');
+      // Validação básica
+      if (response.statusCode == 200) {
+        return;
+      } else {
+        return null;
+      }
+    } catch (error, stacktrace) {
+      print("Erro ao deletar nota: " + stacktrace.toString());
       return null;
     }
   }

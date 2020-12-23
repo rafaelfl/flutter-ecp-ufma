@@ -27,6 +27,15 @@ class _HomeState extends State<Home> {
               onPressed: () {
                 _noteController.loadNotes();
               },
+            ),
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/new',
+                );
+              },
             )
           ],
           title: Text('Minimalist Notes'),
@@ -42,8 +51,8 @@ class _HomeState extends State<Home> {
                       child: Card(
                         child: ListTile(
                           onTap: () {
-                            Navigator.pushNamed(context, '/detailView',
-                                arguments: list[index].id);
+                            _noteController.deleteNote(list[index].id);
+                            _noteController.loadNotes();
                           },
                           title: Padding(
                             padding: const EdgeInsets.all(8.0),

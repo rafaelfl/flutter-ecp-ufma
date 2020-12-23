@@ -31,6 +31,13 @@ mixin _$NoteController on _NoteControllerBase, Store {
     return _$loadNotesAsyncAction.run(() => super.loadNotes());
   }
 
+  final _$deleteNoteAsyncAction = AsyncAction('_NoteControllerBase.deleteNote');
+
+  @override
+  Future deleteNote(int id) {
+    return _$deleteNoteAsyncAction.run(() => super.deleteNote(id));
+  }
+
   @override
   String toString() {
     return '''

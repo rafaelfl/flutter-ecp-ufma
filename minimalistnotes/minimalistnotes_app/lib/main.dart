@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:minimalistnotes_app/views/detail/detailView.dart';
 import 'package:minimalistnotes_app/views/home/homeView.dart';
+import 'package:minimalistnotes_app/views/new/newView.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(primarySwatch: Colors.yellow),
         routes: {
           '/': (context) => Home(),
-          '/detail': (context) => Detail(),
+          '/new': (context) => New(),
         },
         initialRoute: '/');
   }
